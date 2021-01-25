@@ -8,7 +8,7 @@
   "npm": "6.14.8"
 },
   "scripts": {
-    "start": "node server.js",
+    "start": "node ../server.js",
     "build": "set NODE_ENV='production'"
   },
   "author": "Benjamin Nedelec",
