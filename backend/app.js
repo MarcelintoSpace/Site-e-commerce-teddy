@@ -19,7 +19,7 @@ mongoose.connect(
   });
 
 
-  app.use(express.static("frontend"));
+  app.use(express.static("public"));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
