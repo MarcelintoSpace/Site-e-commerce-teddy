@@ -2,8 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
-//new
-const serverless = require ('serverless-http');
 
 const teddyRoutes = require('./routes/teddy');
 
@@ -20,8 +18,6 @@ mongoose.connect(
     console.error(error);
   });
 
-//New
-app.use('/.netlify/functions/app', router);
 
   app.use(express.static("frontend"));
 
@@ -39,5 +35,3 @@ app.use(bodyParser.json());
 app.use('/api/teddies', teddyRoutes);
 
 module.exports = app;
-// new
-module.exports.handler = serverless(app);
