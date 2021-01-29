@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
+var compression = require('compression');
+var helmet = require('helmet');
 
 const teddyRoutes = require('./routes/teddy');
 
@@ -18,8 +20,11 @@ mongoose.connect(
     console.error(error);
   });
 
+app.use(compression());
 
-  app.use(express.static("public"));
+app.use(helmet());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
